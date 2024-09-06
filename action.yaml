@@ -1,0 +1,44 @@
+name: ai.robots.txt
+author: thislooksfun
+description: Update robots.txt from ai-robots-txt/ai.robots.txt
+inputs:
+  branch:
+    description: The branch to checkout
+    required: false
+    default: ""
+  commit-message:
+    description: The commit message to use
+    required: false
+    default: "chore: update robots.txt"
+  pr-branch:
+    description: The name of the branch to use
+    required: false
+    default: update-robots-txt
+  pr-title:
+    description: The title of the PR to create
+    required: false
+    default: Update robots.txt
+branding:
+  icon: slash
+  color: "gray-dark"
+runs:
+  using: composite
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.branch }}
+
+    - name: Fetch robots.txt
+      shell: bash
+      run: curl -sSL -O https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/main/robots.txt
+
+    - name: Open PR
+      uses: peter-evans/create-pull-request@v7
+      with:
+        commit-message: ${{ inputs.commit-message }}
+        branch: ${{ inputs.pr-branch }}
+        title: ${{ inputs.pr-title }}
+        # TODO: Link a changelog somehow?
+        body: Update robots.txt from [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt)
+        delete-branch: true
