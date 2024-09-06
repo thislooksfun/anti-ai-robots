@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/thislooksfun/anti-ai-robots/compare/v1.1.0...v1.1.1) (2024-09-06)
+
+
+### Bug Fixes
+
+* set commit author to github actions bot ([5469f99](https://github.com/thislooksfun/anti-ai-robots/commit/5469f99072f31d1ea6acbe0ce095f6179f8a119d))
+
 ## [1.1.0](https://github.com/thislooksfun/anti-ai-robots/compare/v1.0.0...v1.1.0) (2024-09-06)
 
 
