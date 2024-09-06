@@ -2,6 +2,10 @@ name: ai.robots.txt
 author: thislooksfun
 description: Update robots.txt from ai-robots-txt/ai.robots.txt
 inputs:
+  path:
+    description: The path to the robots.txt file
+    required: false
+    default: robots.txt
   branch:
     description: The branch to checkout
     required: false
@@ -31,7 +35,9 @@ runs:
 
     - name: Fetch robots.txt
       shell: bash
-      run: curl -sSL -O https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/main/robots.txt
+      run: |
+        mkdir -p $(dirname $(readlink -m ${{ inputs.path }}))
+        curl -sSL https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/main/robots.txt -o ${{ inputs.path }}
 
     - name: Open PR
       uses: peter-evans/create-pull-request@v7

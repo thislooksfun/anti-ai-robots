@@ -22,6 +22,11 @@ jobs:
       - name: Update robots.txt
         uses: thislooksfun/anti-ai-robots@v1
         with:
+          # The path to the robots.txt file. Useful if your static files are not
+          # hosted at the root of the repository, or if you want to use a
+          # different filename.
+          path: robots.txt
+
           # The name of the branch to update. Useful if you have your website
           # hosted on a separate branch, i.e. github pages
           branch: ""
