@@ -19,7 +19,7 @@ jobs:
           release-type: simple
 
       - uses: actions/checkout@v4
-
+        if: ${{ steps.release.outputs.release_created }}
       - name: Tag major and major.minor
         if: ${{ steps.release.outputs.release_created }}
         run: |
