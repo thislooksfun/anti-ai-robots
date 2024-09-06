@@ -47,4 +47,5 @@ runs:
         title: ${{ inputs.pr-title }}
         # TODO: Link a changelog somehow?
         body: Update robots.txt from [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt)
+        author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
         delete-branch: true
