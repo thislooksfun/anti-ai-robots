@@ -13,6 +13,9 @@ on:
     - cron: "0 0 * * *"
 
 permissions:
+  # Create and push new branch
+  contents: write
+  # Create PR
   pull-requests: write
 
 jobs:
